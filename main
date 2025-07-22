@@ -1,0 +1,40 @@
+import streamlit as st
+
+st.set_page_config(page_title="🐻 Gấu cute từ GitHub", layout="wide")
+
+st.title("🐻 Animation: Gấu kéo dòng chữ từ GitHub")
+
+# Thay link dưới bằng link ảnh bạn upload lên GitHub
+image_url = "con gấu cute.png"
+
+st.markdown(f"""
+<style>
+@keyframes move {{
+  0% {{ transform: translateX(-100%); }}
+  100% {{ transform: translateX(100%); }}
+}}
+
+#bear-container {{
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff69b4;
+  animation: move 10s linear infinite;
+  position: absolute;
+  white-space: nowrap;
+}}
+
+#bear-img {{
+  height: 70px;
+  margin-left: 10px;
+}}
+</style>
+
+<div style="height: 100px; overflow: hidden; position: relative;">
+  <div id="bear-container">
+    🧸 Con gấu cute kéo tới đây~~~
+    <img id="bear-img" src="{image_url}" />
+  </div>
+</div>
+""", unsafe_allow_html=True)
